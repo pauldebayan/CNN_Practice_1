@@ -1,0 +1,14 @@
+counter=1
+IFS=$'\n'  # Set IFS to handle file names with spaces or special characters
+for file in *.jpg *.jpeg; do
+    # rename the file
+    mv "$file" "$1$counter.jpg"
+    # resize image to 50x50
+    convert "$1$counter.jpg" -resize 50x50\! "$1$counter.jpg"
+    # put label in labels.csv
+    echo "$1$counter.jpg", $2 >> ../labels.csv
+    counter=$((counter + 1))
+done
+
+# To use this code from img_dir use:
+# ../image_processing/process_images dolphine 0
