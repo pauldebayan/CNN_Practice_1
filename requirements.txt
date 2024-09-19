@@ -1,0 +1,6 @@
+ipykernel
+torchvision
+matplotlib
+pandas
+onnx
+onnxscript
