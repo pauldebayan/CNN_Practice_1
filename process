@@ -1,0 +1,8 @@
+counter=1
+IFS=$'\n'
+for file in *.jpg; do
+    mv "$file" "specs$counter.jpg"
+    convert "specs$counter.jpg" -background white -flatten -resize 64x32\! "specs$counter.jpg"
+    echo "specs$counter.jpg", 1 >> labels.csv
+    counter=$((counter + 1))
+done
